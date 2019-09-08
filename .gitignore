@@ -2,6 +2,5 @@
 /build/
 /.idea/
 
-/composer.lock
 /phpunit.xml
 /.php_cs.cache
