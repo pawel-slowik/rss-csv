@@ -10,7 +10,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
 use PawelSlowikRekrutacjaHRtec\RssReader\RssReader;
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\CsvWriter;
 
 class CsvCommand extends Command
 {
