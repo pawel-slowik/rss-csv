@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PawelSlowikRekrutacjaHRtec\RssReader\Writer;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\WriterInterface;
 use PawelSlowikRekrutacjaHRtec\RssReader\Exception\RuntimeException;
 
 class OverwriteWriter implements WriterInterface
