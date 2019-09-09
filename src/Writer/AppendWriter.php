@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PawelSlowikRekrutacjaHRtec\RssReader\Writer;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\CsvWriter;
+use PawelSlowikRekrutacjaHRtec\RssReader\Writer\WriterInterface;
 use PawelSlowikRekrutacjaHRtec\RssReader\Exception\RuntimeException;
 
-class AppendCsvWriter implements CsvWriter
+class AppendWriter implements WriterInterface
 {
 
     public function write(string $outputFileName, string $outputHeader, string $outputData)

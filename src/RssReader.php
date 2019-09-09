@@ -6,7 +6,7 @@ namespace PawelSlowikRekrutacjaHRtec\RssReader;
 
 use Zend\Feed\Reader\Reader as FeedReader;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\CsvWriter;
+use PawelSlowikRekrutacjaHRtec\RssReader\Writer\WriterInterface;
 
 class RssReader
 {
@@ -20,7 +20,7 @@ class RssReader
 
     protected $purifier;
 
-    public function __construct(CsvWriter $writer)
+    public function __construct(WriterInterface $writer)
     {
         $this->writer = $writer;
         $purifierConfig = \HTMLPurifier_Config::createDefault();
