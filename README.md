@@ -24,3 +24,7 @@ Help for a command:
 | zendframework/zend-http | default for zend-feed (Guzzle requires an adapter) |
 | ezyang/htmlpurifier     | `strip_tags` is not safe |
 | league/csv              | comes up first when googling for `php composer csv` |
+
+## TODO
+
+Unit tests.
