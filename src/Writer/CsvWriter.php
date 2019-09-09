@@ -7,6 +7,6 @@ namespace PawelSlowikRekrutacjaHRtec\RssReader\Writer;
 interface CsvWriter
 {
 
-    public function write(string $outputFileName, string $outputData);
+    public function write(string $outputFileName, string $outputHeader, string $outputData);
 
 }
