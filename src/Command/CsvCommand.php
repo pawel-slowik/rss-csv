@@ -25,11 +25,10 @@ class CsvCommand extends Command
         $this->addArgument('path', InputArgument::REQUIRED, 'Output CSV file name');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $url = $input->getArgument('url');
         $path = $input->getArgument('path');
         $this->reader->read($url, $path);
     }
-
 }

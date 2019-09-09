@@ -10,7 +10,6 @@ use PawelSlowikRekrutacjaHRtec\RssReader\Writer\WriterInterface;
 
 class RssReader
 {
-
     protected $writer;
 
     // http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details
@@ -109,9 +108,8 @@ class RssReader
         return [$csvHeader->getContent(), $csvData->getContent()];
     }
 
-    protected function write(string $path, string $header, string $data)
+    protected function write(string $path, string $header, string $data): void
     {
         $this->writer->write($path, $header, $data);
     }
-
 }

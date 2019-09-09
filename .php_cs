@@ -113,7 +113,7 @@ return \PhpCsFixer\Config::create()
         'not_operator_with_successor_space' => true,
         'object_operator_without_whitespace' => true, // @Symfony
         'ordered_class_elements' => true,
-        'ordered_imports' => true,
+        'ordered_imports' => false,
         'php_unit_construct' => true, // @Symfony:risky
         'php_unit_dedicate_assert' => true,
         'php_unit_expectation' => true,
@@ -154,7 +154,7 @@ return \PhpCsFixer\Config::create()
         'psr0' => true,
         'psr4' => true, // @Symfony:risky
         'return_assignment' => true,
-        'return_type_declaration' =>  ['space_before' => 'one'],
+        'return_type_declaration' =>  ['space_before' => 'none'],
         'self_accessor' => true, // @Symfony:risky
         'semicolon_after_instruction' => true, // @Symfony
         'set_type_to_cast' => true, // @Symfony:risky

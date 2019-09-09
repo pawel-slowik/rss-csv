@@ -6,7 +6,5 @@ namespace PawelSlowikRekrutacjaHRtec\RssReader\Writer;
 
 interface WriterInterface
 {
-
-    public function write(string $outputFileName, string $outputHeader, string $outputData);
-
+    public function write(string $outputFileName, string $outputHeader, string $outputData): void;
 }
