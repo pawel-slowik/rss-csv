@@ -56,8 +56,11 @@ class RssReader
             return null;
         }
         $authors = ($entryAuthors) ? $entryAuthors : $feedAuthors;
+
         return implode(' ', array_map(
-            function ($author) { return $author['email'] . ' ' . $author['name']; },
+            function ($author) {
+                return $author['email'] . ' ' . $author['name'];
+            },
             iterator_to_array($authors)
         ));
     }
@@ -73,6 +76,7 @@ class RssReader
     {
         $entry['pubDate'] = $this->formatEntryDate($entry['pubDate']);
         $entry['description'] = $this->formatEntryDescription($entry['description']);
+
         return $entry;
     }
 
@@ -105,6 +109,7 @@ class RssReader
             }
             $csvData->insertOne($entry);
         }
+
         return [$csvHeader->getContent(), $csvData->getContent()];
     }
 
