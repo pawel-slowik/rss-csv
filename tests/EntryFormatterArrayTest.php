@@ -33,7 +33,7 @@ class EntryFormatterArrayTest extends TestCase
     public function testReturnsSameKeys(): void
     {
         $formatted = $this->formatter->format($this->emptyEntry);
-        foreach ($this->emptyEntry as $key => $value) {
+        foreach (array_keys($this->emptyEntry) as $key) {
             $this->assertArrayHasKey($key, $formatted);
         }
     }
