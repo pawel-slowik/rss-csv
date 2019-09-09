@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PawelSlowikRekrutacjaHRtec\RssReader;
 
 use Zend\Feed\Reader\Reader as FeedReader;
+use League\Csv\Writer as CsvWriter;
 
 use PawelSlowikRekrutacjaHRtec\RssReader\Writer\WriterInterface;
 
@@ -99,8 +100,8 @@ class RssReader
 
     protected function convert(Iterable $data): array
     {
-        $csvData = \League\Csv\Writer::createFromString();
-        $csvHeader = \League\Csv\Writer::createFromString();
+        $csvData = CsvWriter::createFromString();
+        $csvHeader = CsvWriter::createFromString();
         $headerDone = false;
         foreach ($data as $entry) {
             if (!$headerDone) {
