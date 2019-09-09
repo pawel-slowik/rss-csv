@@ -13,19 +13,12 @@ class RssReader
 {
     protected $writer;
 
-    // http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details
-    protected $dateFormat = 'd MMMM Y H:mm:ss';
-
-    protected $dateLocale = 'pl_PL';
-
-    protected $purifier;
+    protected $entryFormatter;
 
     public function __construct(WriterInterface $writer)
     {
         $this->writer = $writer;
-        $purifierConfig = \HTMLPurifier_Config::createDefault();
-        $purifierConfig->set('HTML.Allowed', '');
-        $this->purifier = new \HTMLPurifier($purifierConfig);
+        $this->entryFormatter = new EntryFormatter();
     }
 
     public function read(string $url, string $path): void
@@ -69,33 +62,8 @@ class RssReader
     protected function formatIter(Iterable $entries): Iterable
     {
         foreach ($entries as $entry) {
-            yield $this->formatEntry($entry);
+            yield $this->entryFormatter->format($entry);
         }
-    }
-
-    protected function formatEntry(array $entry): array
-    {
-        $entry['pubDate'] = $this->formatEntryDate($entry['pubDate']);
-        $entry['description'] = $this->formatEntryDescription($entry['description']);
-
-        return $entry;
-    }
-
-    protected function formatEntryDate(object $date): string
-    {
-        return \IntlDateFormatter::formatObject($date, $this->dateFormat, $this->dateLocale);
-    }
-
-    protected function formatEntryDescription(string $description): string
-    {
-        // strip HTML
-        $clean = $this->purifier->purify($description);
-
-        // strip URLs - http://urlregex.com/
-        $urlRegexp = '%(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@|\d{1,3}(?:\.\d{1,3}){3}|(?:(?:[a-z\d\x{00a1}-\x{ffff}]+-?)*[a-z\d\x{00a1}-\x{ffff}]+)(?:\.(?:[a-z\d\x{00a1}-\x{ffff}]+-?)*[a-z\d\x{00a1}-\x{ffff}]+)*(?:\.[a-z\x{00a1}-\x{ffff}]{2,6}))(?::\d+)?(?:[^\s]*)?%iu';
-        $stripped = preg_replace($urlRegexp, '', $clean);
-
-        return $stripped;
     }
 
     protected function convert(Iterable $data): array
