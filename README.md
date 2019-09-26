@@ -1,5 +1,7 @@
 Download a RSS/Atom feed and save its contents into a CSV file.
 
+Note: this is a job interview task, not a complete solution.
+
 ## Installation
 
 	composer install
