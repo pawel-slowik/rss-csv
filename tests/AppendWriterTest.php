@@ -40,6 +40,6 @@ class AppendWriterTest extends WriterTestBase
     public function testException(): void
     {
         $this->expectException(RuntimeException::class);
-        $this->writer->write('', '', '');
+        @$this->writer->write('', '', '');
     }
 }

@@ -14,7 +14,7 @@ class AppendWriter implements WriterInterface
         string $outputData
     ): void {
         // skip the header when appending
-        if (@file_put_contents($outputFileName, $outputData, FILE_APPEND) === false) {
+        if (file_put_contents($outputFileName, $outputData, FILE_APPEND) === false) {
             throw new RuntimeException("can't save to output file: ${outputFileName}");
         }
     }
