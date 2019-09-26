@@ -5,10 +5,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\RssReader;
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\OverwriteWriter;
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\AppendWriter;
-use PawelSlowikRekrutacjaHRtec\RssReader\Command\CsvCommand;
+use RssReader\RssReader;
+use RssReader\Writer\OverwriteWriter;
+use RssReader\Writer\AppendWriter;
+use RssReader\Command\CsvCommand;
 
 $application = new Application();
 

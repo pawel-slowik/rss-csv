@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PawelSlowikRekrutacjaHRtec\RssReader\Writer;
+namespace RssReader\Writer;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\Exception\RuntimeException;
+use RssReader\Exception\RuntimeException;
 
 class AppendWriter implements WriterInterface
 {

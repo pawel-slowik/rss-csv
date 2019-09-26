@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PawelSlowikRekrutacjaHRtec\RssReader;
+namespace RssReader;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\OverwriteWriter;
-use PawelSlowikRekrutacjaHRtec\RssReader\Exception\RuntimeException;
+use RssReader\Writer\OverwriteWriter;
+use RssReader\Exception\RuntimeException;
 
 class OverwriteWriterTest extends WriterTestBase
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PawelSlowikRekrutacjaHRtec\RssReader;
+namespace RssReader;
 
 use Zend\Feed\Reader\Reader as FeedReader;
 use League\Csv\Writer as CsvWriter;
 
-use PawelSlowikRekrutacjaHRtec\RssReader\Writer\WriterInterface;
+use RssReader\Writer\WriterInterface;
 
 class RssReader
 {

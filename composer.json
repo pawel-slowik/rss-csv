@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PawelSlowikRekrutacjaHRtec\\RssReader\\": "src/"
+            "RssReader\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PawelSlowikRekrutacjaHRtec\\RssReader\\": [
+            "RssReader\\": [
                 "tests/",
                 "tests/Fake"
             ]
