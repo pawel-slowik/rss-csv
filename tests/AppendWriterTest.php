@@ -23,7 +23,7 @@ class AppendWriterTest extends WriterTestBase
 
     public function testOutputCreated(): void
     {
-        $this->assertFileNotExists($this->tmpFilename);
+        $this->assertFileDoesNotExist($this->tmpFilename);
         $this->writer->write($this->tmpFilename, '', '');
         $this->assertFileExists($this->tmpFilename);
     }
