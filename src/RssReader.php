@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace RssReader;
 
-use Zend\Feed\Reader\Reader as FeedReader;
+use Laminas\Feed\Reader\Reader as FeedReader;
 use League\Csv\Writer as CsvWriter;
 
 use RssReader\Writer\WriterInterface;
