@@ -13,7 +13,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude(['tests/Fake', 'tests/tmp', 'template'])
     ->in(__DIR__);
 
-return \PhpCsFixer\Config::create()
+return (new \PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,
@@ -25,7 +25,6 @@ return \PhpCsFixer\Config::create()
         'backtick_to_shell_exec' => true,
         'binary_operator_spaces' => true, // @Symfony
         'blank_line_after_opening_tag' => true, // @Symfony
-        'blank_line_before_return' => true,
         'blank_line_before_statement' => ['statements' => ['break', 'continue', 'declare', 'return', 'throw']], // @Symfony
         'cast_spaces' => true, // @Symfony
         'class_attributes_separation' => ['elements' => ['const', 'method']], // @Symfony
@@ -38,6 +37,7 @@ return \PhpCsFixer\Config::create()
 //      'date_time_immutable' => true,
         'declare_equal_normalize' => true, // @Symfony
         'dir_constant' => true, // @Symfony:risky
+        'echo_tag_syntax' => ['format' => 'long'],
         'ereg_to_preg' => true, // @Symfony:risky
         'error_suppression' => true, // @Symfony:risky
         'escape_implicit_backslashes' => true,
@@ -47,13 +47,13 @@ return \PhpCsFixer\Config::create()
         'fully_qualified_strict_types' => true,
         'function_to_constant' => true, // @Symfony:risky
         'function_typehint_space' => true, // @Symfony
-        'general_phpdoc_annotation_remove' => ['author', 'category', 'package', 'copyright', 'version'],
+        'general_phpdoc_annotation_remove' => ['annotations' => ['author', 'category', 'package', 'copyright', 'version']],
+        'general_phpdoc_tag_rename' => ['replacements' => ['inheritDocs' => 'inheritDoc']],
         'header_comment' => ['header' => $header, 'comment_type' => 'comment'],
         'heredoc_to_nowdoc' => true,
         'include' => true, // @Symfony
 //      'increment_style' => 'pre', // @Symfony
         'indentation_type' => true,
-        'is_null' => ['use_yoda_style' => false], // @Symfony:risky
         'linebreak_after_opening_tag' => true,
 //      'list_syntax' => true,
 //      'logical_operators' => true,
@@ -62,7 +62,7 @@ return \PhpCsFixer\Config::create()
         'magic_constant_casing' => true,
 //      'mb_str_functions' => true,
         'method_chaining_indentation' => true,
-        'method_separation' => true,
+        'class_attributes_separation' => true,
         'modernize_types_casting' => true, // @Symfony:risky
         'multiline_comment_opening_closing' => true,
         'multiline_whitespace_before_semicolons' => true,
@@ -88,7 +88,6 @@ return \PhpCsFixer\Config::create()
         'no_null_property_initialization' => true,
         'no_php4_constructor' => true,
         'no_short_bool_cast' => true, // @Symfony
-        'no_short_echo_tag' => false,
         'no_singleline_whitespace_before_semicolons' => true, // @Symfony
         'no_spaces_around_offset' => true, // @Symfony
         'no_superfluous_elseif' => true,
@@ -122,7 +121,6 @@ return \PhpCsFixer\Config::create()
 //      'php_unit_mock' => true,
         'php_unit_namespaced' => true,
         'php_unit_no_expectation_annotation' => true,
-        'php_unit_ordered_covers' => true,
         'php_unit_set_up_tear_down_visibility' => true,
         'php_unit_strict' => true,
 //      'php_unit_test_annotation' => true,
@@ -132,18 +130,20 @@ return \PhpCsFixer\Config::create()
         'phpdoc_align' => true, // @Symfony]
         'phpdoc_annotation_without_dot' => true, // @Symfony]
         'phpdoc_indent' => true, // @Symfony]
-        'phpdoc_inline_tag' => true, // @Symfony]
+        'phpdoc_inline_tag_normalizer' => true,
         'phpdoc_no_access' => true, // @Symfony]
         'phpdoc_no_alias_tag' => true, // @Symfony
         'phpdoc_no_empty_return' => true, // @Symfony
         'phpdoc_no_package' => true, // @Symfony
 //      'phpdoc_no_useless_inheritdoc' => true, // @Symfony
         'phpdoc_order' => true,
+        'phpdoc_order_by_value' => true,
         'phpdoc_return_self_reference' => true, // @Symfony
         'phpdoc_scalar' => true, // @Symfony
         'phpdoc_separation' => true, // @Symfony
         'phpdoc_single_line_var_spacing' => true, // @Symfony
 //      'phpdoc_summary' => true, // @Symfony
+        'phpdoc_tag_type' => true,
         'phpdoc_to_comment' => true, // @Symfony
         'phpdoc_trim' => true, // @Symfony
         'phpdoc_trim_consecutive_blank_line_separation' => true,
@@ -151,8 +151,7 @@ return \PhpCsFixer\Config::create()
         'phpdoc_types_order' => true, // @Symfony
         'phpdoc_var_without_name' => true, // @Symfony
         'protected_to_private' => true,
-        'psr0' => true,
-        'psr4' => true, // @Symfony:risky
+        'psr_autoloading' => true,
         'return_assignment' => false,
         'return_type_declaration' =>  ['space_before' => 'none'],
         'self_accessor' => true, // @Symfony:risky
