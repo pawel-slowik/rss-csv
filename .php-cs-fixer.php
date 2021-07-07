@@ -28,13 +28,10 @@ return (new \PhpCsFixer\Config())
         'blank_line_before_statement' => ['statements' => ['break', 'continue', 'declare', 'return', 'throw']], // @Symfony
         'cast_spaces' => true, // @Symfony
         'class_attributes_separation' => ['elements' => ['const', 'method']], // @Symfony
-//      'class_keyword_remove' => true,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
-//      'comment_to_phpdoc' => true,
         'compact_nullable_typehint' => true,
         'concat_space' => ['spacing' => 'one'], // @Symfony
-//      'date_time_immutable' => true,
         'declare_equal_normalize' => true, // @Symfony
         'dir_constant' => true, // @Symfony:risky
         'echo_tag_syntax' => ['format' => 'long'],
@@ -43,7 +40,6 @@ return (new \PhpCsFixer\Config())
         'escape_implicit_backslashes' => true,
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
-//      'final_internal_class' => true,
         'fully_qualified_strict_types' => true,
         'function_to_constant' => true, // @Symfony:risky
         'function_typehint_space' => true, // @Symfony
@@ -52,30 +48,22 @@ return (new \PhpCsFixer\Config())
         'header_comment' => ['header' => $header, 'comment_type' => 'comment'],
         'heredoc_to_nowdoc' => true,
         'include' => true, // @Symfony
-//      'increment_style' => 'pre', // @Symfony
         'indentation_type' => true,
         'linebreak_after_opening_tag' => true,
-//      'list_syntax' => true,
-//      'logical_operators' => true,
         'lowercase_cast' => true, // @Symfony
         'lowercase_static_reference' => true, // @Symfony
         'magic_constant_casing' => true,
-//      'mb_str_functions' => true,
         'method_chaining_indentation' => true,
         'class_attributes_separation' => true,
         'modernize_types_casting' => true, // @Symfony:risky
         'multiline_comment_opening_closing' => true,
         'multiline_whitespace_before_semicolons' => true,
-//      'native_constant_invocation' => true,
         'native_function_casing' => true, // @Symfony
-//      'native_function_invocation' => true,
-//      'new_with_braces' => true, // @Symfony
         'no_alias_functions' => true, // @Symfony:risky
         'no_alternative_syntax' => true,
         'no_binary_string' => true,
         'no_blank_lines_after_class_opening' => true, // @Symfony
         'no_blank_lines_after_phpdoc' => true, // @Symfony
-//      'no_blank_lines_before_namespace' => true,
         'no_empty_comment' => true, // @Symfony
         'no_empty_phpdoc' => true, // @Symfony
         'no_empty_statement' => true, // @Symfony
@@ -117,16 +105,10 @@ return (new \PhpCsFixer\Config())
         'php_unit_dedicate_assert' => true,
         'php_unit_expectation' => true,
         'php_unit_fqcn_annotation' => true, // @Symfony
-//      'php_unit_internal_class' => true, // @Symfony]
-//      'php_unit_mock' => true,
         'php_unit_namespaced' => true,
         'php_unit_no_expectation_annotation' => true,
         'php_unit_set_up_tear_down_visibility' => true,
         'php_unit_strict' => true,
-//      'php_unit_test_annotation' => true,
-//      'php_unit_test_case_static_method_calls' => true,
-//      'php_unit_test_class_requires_covers' => true,
-//      'phpdoc_add_missing_param_annotation' => true,
         'phpdoc_align' => true, // @Symfony]
         'phpdoc_annotation_without_dot' => true, // @Symfony]
         'phpdoc_indent' => true, // @Symfony]
@@ -135,14 +117,12 @@ return (new \PhpCsFixer\Config())
         'phpdoc_no_alias_tag' => true, // @Symfony
         'phpdoc_no_empty_return' => true, // @Symfony
         'phpdoc_no_package' => true, // @Symfony
-//      'phpdoc_no_useless_inheritdoc' => true, // @Symfony
         'phpdoc_order' => true,
         'phpdoc_order_by_value' => true,
         'phpdoc_return_self_reference' => true, // @Symfony
         'phpdoc_scalar' => true, // @Symfony
         'phpdoc_separation' => true, // @Symfony
         'phpdoc_single_line_var_spacing' => true, // @Symfony
-//      'phpdoc_summary' => true, // @Symfony
         'phpdoc_tag_type' => true,
         'phpdoc_to_comment' => true, // @Symfony
         'phpdoc_trim' => true, // @Symfony
@@ -160,25 +140,18 @@ return (new \PhpCsFixer\Config())
         'short_scalar_cast' => true, // @Symfony:risky
         'simplified_null_return' => true,
         'single_blank_line_before_namespace' => true, // @Symfony
-//      'single_line_comment_style' => true, // @Symfony
         'single_line_after_imports' => true,
         'single_quote' => true, // @Symfony
         'space_after_semicolon' => true, // @Symfony
         'standardize_increment' => true, // @Symfony
         'standardize_not_equals' => true, // @Symfony
-//      'static_lambda' => true,
-//      'strict_comparison' => true,
         'strict_param' => true,
-//      'string_line_ending' => true,
         'switch_case_semicolon_to_colon' => true,
         'switch_case_space' => true,
         'ternary_operator_spaces' => true,
-//      'trailing_comma_in_multiline_array' => true, // @Symfony
         'trim_array_spaces' => true, // @Symfony
         'unary_operator_spaces' => true, // @Symfony
         'visibility_required' => true,
-//      'void_return' => true, // @PHP71Migration:risky
         'whitespace_after_comma_in_array' => true, // @Symfony
-//      'yoda_style' => true // @Symfony
     ])
     ->setFinder($finder);
