@@ -25,6 +25,6 @@ Help for a command:
 
 ## TODO
 
-- Refactoring - move more code from RssReader to separate classes, because protected
+- Refactoring - move more code from RssClient to separate classes, because protected
   methods are problematic when it comes to testing.
 - More unit tests.

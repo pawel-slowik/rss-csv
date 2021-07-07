@@ -9,16 +9,16 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
-use RssClient\RssReader;
+use RssClient\RssClient;
 
 class CsvCommand extends Command
 {
-    protected $reader;
+    protected $rssClient;
 
-    public function __construct(RssReader $reader, string $name, string $description)
+    public function __construct(RssClient $rssClient, string $name, string $description)
     {
         parent::__construct();
-        $this->reader = $reader;
+        $this->rssClient = $rssClient;
         $this->setName($name);
         $this->setDescription($description);
         $this->addArgument('url', InputArgument::REQUIRED, 'Input RSS URL');
@@ -31,6 +31,6 @@ class CsvCommand extends Command
     ): void {
         $url = $input->getArgument('url');
         $path = $input->getArgument('path');
-        $this->reader->read($url, $path);
+        $this->rssClient->read($url, $path);
     }
 }

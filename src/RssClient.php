@@ -9,7 +9,7 @@ use League\Csv\Writer as CsvWriter;
 
 use RssClient\Writer\WriterInterface;
 
-class RssReader
+class RssClient
 {
     protected $writer;
 
