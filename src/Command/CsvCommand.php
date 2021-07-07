@@ -31,6 +31,6 @@ class CsvCommand extends Command
     ): void {
         $url = $input->getArgument('url');
         $path = $input->getArgument('path');
-        $this->rssClient->read($url, $path);
+        $this->rssClient->readAndSave($url, $path);
     }
 }

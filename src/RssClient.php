@@ -21,12 +21,12 @@ class RssClient
         $this->entryFormatter = new EntryFormatter();
     }
 
-    public function read(string $url, string $path): void
+    public function readAndSave(string $inputUrl, string $outputFilename): void
     {
-        $input = $this->fetchIter($url);
+        $input = $this->fetchIter($inputUrl);
         $formatted = $this->formatIter($input);
         list($header, $converted) = $this->convert($formatted);
-        $this->write($path, $header, $converted);
+        $this->write($outputFilename, $header, $converted);
     }
 
     protected function fetchIter(string $url): Iterable
