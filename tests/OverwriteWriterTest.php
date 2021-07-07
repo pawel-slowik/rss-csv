@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace RssReader;
+namespace RssClient;
 
-use RssReader\Writer\OverwriteWriter;
-use RssReader\Exception\RuntimeException;
+use RssClient\Writer\OverwriteWriter;
+use RssClient\Exception\RuntimeException;
 
 class OverwriteWriterTest extends WriterTestBase
 {

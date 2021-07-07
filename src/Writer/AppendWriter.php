@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace RssReader\Writer;
+namespace RssClient\Writer;
 
-use RssReader\Exception\RuntimeException;
+use RssClient\Exception\RuntimeException;
 
 class AppendWriter implements WriterInterface
 {

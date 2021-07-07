@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "RssReader\\": "src/"
+            "RssClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RssReader\\": [
+            "RssClient\\": [
                 "tests/",
                 "tests/Fake"
             ]

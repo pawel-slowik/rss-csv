@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssReader;
+namespace RssClient;
 
 class EntryFormatter
 {

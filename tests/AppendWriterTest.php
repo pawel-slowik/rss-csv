@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RssReader;
+namespace RssClient;
 
-use RssReader\Writer\AppendWriter;
-use RssReader\Writer\OverwriteWriter;
-use RssReader\Exception\RuntimeException;
+use RssClient\Writer\AppendWriter;
+use RssClient\Writer\OverwriteWriter;
+use RssClient\Exception\RuntimeException;
 
 class AppendWriterTest extends WriterTestBase
 {

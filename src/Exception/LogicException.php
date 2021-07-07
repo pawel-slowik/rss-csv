@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssReader\Exception;
+namespace RssClient\Exception;
 
 class LogicException extends \LogicException
 {
