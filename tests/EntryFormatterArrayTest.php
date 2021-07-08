@@ -15,13 +15,12 @@ class EntryFormatterArrayTest extends TestCase
     protected function setUp(): void
     {
         $this->formatter = new EntryFormatter();
-        $this->emptyEntry = [
-            'title' => '',
-            'description' => '',
-            'link' => '',
-            'pubDate' => new \DateTime(),
-            'creator' => '',
-        ];
+        $this->emptyEntry = $this->createStub(Entry::class);
+        $this->emptyEntry->method('getTitle')->willReturn('');
+        $this->emptyEntry->method('getDescription')->willReturn('');
+        $this->emptyEntry->method('getLink')->willReturn('');
+        $this->emptyEntry->method('getPubDate')->willReturn(new \DateTime());
+        $this->emptyEntry->method('getCreator')->willReturn('');
     }
 
     public function testReturnsArray(): void
@@ -30,12 +29,14 @@ class EntryFormatterArrayTest extends TestCase
         $this->assertIsArray($formatted);
     }
 
-    public function testReturnsSameKeys(): void
+    public function testReturnsAllRequiredKeys(): void
     {
         $formatted = $this->formatter->format($this->emptyEntry);
-        foreach (array_keys($this->emptyEntry) as $key) {
-            $this->assertArrayHasKey($key, $formatted);
-        }
+        $this->assertArrayHasKey('title', $formatted);
+        $this->assertArrayHasKey('description', $formatted);
+        $this->assertArrayHasKey('link', $formatted);
+        $this->assertArrayHasKey('pubDate', $formatted);
+        $this->assertArrayHasKey('creator', $formatted);
     }
 
     public function testReturnsDescriptionAsString(): void

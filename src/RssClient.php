@@ -34,13 +34,13 @@ class RssClient
         $feed = FeedReader::import($url);
         $feedAuthors = $feed->getAuthors();
         foreach ($feed as $entry) {
-            yield [
-                'title' => $entry->getTitle(),
-                'description' => $entry->getDescription(),
-                'link' => $entry->getLink(),
-                'pubDate' => $entry->getDateModified(),
-                'creator' => $this->getEntryCreator($entry->getAuthors(), $feedAuthors),
-            ];
+            yield new Entry(
+                $entry->getTitle(),
+                $entry->getDescription(),
+                $entry->getLink(),
+                $entry->getDateModified(),
+                $this->getEntryCreator($entry->getAuthors(), $feedAuthors)
+            );
         }
     }
 

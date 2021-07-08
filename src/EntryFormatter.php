@@ -22,12 +22,15 @@ class EntryFormatter
         $this->purifier = new \HTMLPurifier($purifierConfig);
     }
 
-    public function format(array $entry): array
+    public function format(Entry $entry): array
     {
-        $entry['pubDate'] = $this->formatDate($entry['pubDate']);
-        $entry['description'] = $this->formatDescription($entry['description']);
-
-        return $entry;
+        return [
+            'title' => $entry->getTitle(),
+            'description' => $this->formatDescription($entry->getDescription()),
+            'link' => $entry->getLink(),
+            'pubDate' => $this->formatDate($entry->getPubDate()),
+            'creator' => $entry->getCreator(),
+        ];
     }
 
     public function formatDate(object $date): string
