@@ -13,11 +13,14 @@ class RssClient
 {
     protected $writer;
 
+    protected $entryFactory;
+
     protected $entryFormatter;
 
     public function __construct(WriterInterface $writer)
     {
         $this->writer = $writer;
+        $this->entryFactory = new EntryFactory();
         $this->entryFormatter = new EntryFormatter();
     }
 
@@ -34,29 +37,8 @@ class RssClient
         $feed = FeedReader::import($url);
         $feedAuthors = $feed->getAuthors();
         foreach ($feed as $entry) {
-            yield new Entry(
-                $entry->getTitle(),
-                $entry->getDescription(),
-                $entry->getLink(),
-                $entry->getDateModified(),
-                $this->getEntryCreator($entry->getAuthors(), $feedAuthors)
-            );
+            yield $this->entryFactory->fromFeedEntryAndAuthors($entry, $feedAuthors);
         }
-    }
-
-    protected function getEntryCreator($entryAuthors, $feedAuthors): ?string
-    {
-        if (!$entryAuthors && !$feedAuthors) {
-            return null;
-        }
-        $authors = ($entryAuthors) ? $entryAuthors : $feedAuthors;
-
-        return implode(' ', array_map(
-            function ($author) {
-                return $author['email'] . ' ' . $author['name'];
-            },
-            iterator_to_array($authors)
-        ));
     }
 
     protected function formatIter(Iterable $entries): Iterable
