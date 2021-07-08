@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Writer;
 
-use RssClient\Writer\AppendWriter;
-use RssClient\Writer\OverwriteWriter;
 use RssClient\Exception\RuntimeException;
 
 /**
