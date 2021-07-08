@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace RssClient;
 
 use Laminas\Feed\Reader\Reader as FeedReader;
-use League\Csv\Writer as CsvWriter;
-
 use RssClient\Writer\WriterInterface;
 
 class RssClient
@@ -15,20 +13,19 @@ class RssClient
 
     protected $entryFactory;
 
-    protected $entryFormatter;
+    protected $converter;
 
     public function __construct(WriterInterface $writer)
     {
         $this->writer = $writer;
         $this->entryFactory = new EntryFactory();
-        $this->entryFormatter = new EntryFormatter();
+        $this->converter = new Converter();
     }
 
     public function readAndSave(string $inputUrl, string $outputFilename): void
     {
         $input = $this->fetchIter($inputUrl);
-        $formatted = $this->formatIter($input);
-        $output = $this->convert($formatted);
+        $output = $this->converter->convert($input);
         $this->write($outputFilename, $output->getHeader(), $output->getData());
     }
 
@@ -39,29 +36,6 @@ class RssClient
         foreach ($feed as $entry) {
             yield $this->entryFactory->fromFeedEntryAndAuthors($entry, $feedAuthors);
         }
-    }
-
-    protected function formatIter(iterable $entries): iterable
-    {
-        foreach ($entries as $entry) {
-            yield $this->entryFormatter->format($entry);
-        }
-    }
-
-    protected function convert(iterable $data): Output
-    {
-        $csvData = CsvWriter::createFromString();
-        $csvHeader = CsvWriter::createFromString();
-        $headerDone = false;
-        foreach ($data as $entry) {
-            if (!$headerDone) {
-                $csvHeader->insertOne(array_keys($entry));
-                $headerDone = true;
-            }
-            $csvData->insertOne($entry);
-        }
-
-        return new Output($csvHeader->getContent(), $csvData->getContent());
     }
 
     protected function write(string $path, string $header, string $data): void
