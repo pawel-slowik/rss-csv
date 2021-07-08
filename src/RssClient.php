@@ -32,7 +32,7 @@ class RssClient
         $this->write($outputFilename, $header, $converted);
     }
 
-    protected function fetchIter(string $url): Iterable
+    protected function fetchIter(string $url): iterable
     {
         $feed = FeedReader::import($url);
         $feedAuthors = $feed->getAuthors();
@@ -41,14 +41,14 @@ class RssClient
         }
     }
 
-    protected function formatIter(Iterable $entries): Iterable
+    protected function formatIter(iterable $entries): iterable
     {
         foreach ($entries as $entry) {
             yield $this->entryFormatter->format($entry);
         }
     }
 
-    protected function convert(Iterable $data): array
+    protected function convert(iterable $data): array
     {
         $csvData = CsvWriter::createFromString();
         $csvHeader = CsvWriter::createFromString();

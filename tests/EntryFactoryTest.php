@@ -42,7 +42,7 @@ class EntryFactoryTest extends TestCase
     /**
      * @dataProvider missingCreatorDataProvider
      */
-    public function testMissingCreator(?Iterable $entryAuthors, ?Iterable $feedAuthors): void
+    public function testMissingCreator(?iterable $entryAuthors, ?iterable $feedAuthors): void
     {
         $this->feedEntry->method('getAuthors')->willReturn($entryAuthors);
 
