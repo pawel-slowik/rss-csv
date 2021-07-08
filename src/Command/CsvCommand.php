@@ -13,7 +13,7 @@ use RssClient\RssClient;
 
 class CsvCommand extends Command
 {
-    protected $rssClient;
+    private $rssClient;
 
     public function __construct(RssClient $rssClient, string $name, string $description)
     {

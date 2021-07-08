@@ -9,11 +9,11 @@ use RssClient\Writer\WriterInterface;
 
 class RssClient
 {
-    protected $writer;
+    private $writer;
 
-    protected $entryFactory;
+    private $entryFactory;
 
-    protected $converter;
+    private $converter;
 
     public function __construct(WriterInterface $writer)
     {

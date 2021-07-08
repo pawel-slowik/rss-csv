@@ -11,9 +11,9 @@ use RssClient\Exception\RuntimeException;
  */
 class AppendWriterTest extends WriterTestBase
 {
-    protected $writer;
+    private $writer;
 
-    protected $overwriteWriter;
+    private $overwriteWriter;
 
     protected function setUp(): void
     {
