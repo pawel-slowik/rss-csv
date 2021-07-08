@@ -26,7 +26,7 @@ class RssClient
     {
         $input = $this->fetchIter($inputUrl);
         $output = $this->converter->convert($input);
-        $this->write($outputFilename, $output->getHeader(), $output->getData());
+        $this->writer->write($outputFilename, $output->getHeader(), $output->getData());
     }
 
     protected function fetchIter(string $url): iterable
@@ -36,10 +36,5 @@ class RssClient
         foreach ($feed as $entry) {
             yield $this->entryFactory->fromFeedEntryAndAuthors($entry, $feedAuthors);
         }
-    }
-
-    protected function write(string $path, string $header, string $data): void
-    {
-        $this->writer->write($path, $header, $data);
     }
 }
