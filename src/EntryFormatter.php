@@ -6,8 +6,6 @@ namespace RssClient;
 
 class EntryFormatter
 {
-    protected $writer;
-
     // http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details
     protected $dateFormat = 'd MMMM Y H:mm:ss';
 
