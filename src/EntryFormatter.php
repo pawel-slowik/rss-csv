@@ -22,17 +22,6 @@ class EntryFormatter
         $this->purifier = new \HTMLPurifier($purifierConfig);
     }
 
-    public function format(Entry $entry): array
-    {
-        return [
-            'title' => $entry->getTitle(),
-            'description' => $this->formatDescription($entry->getDescription()),
-            'link' => $entry->getLink(),
-            'pubDate' => $this->formatDate($entry->getPubDate()),
-            'creator' => $entry->getCreator(),
-        ];
-    }
-
     public function formatDate(object $date): string
     {
         return \IntlDateFormatter::formatObject($date, $this->dateFormat, $this->dateLocale);

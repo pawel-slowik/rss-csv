@@ -17,17 +17,28 @@ class Converter
 
     public function convert(iterable $entries): Output
     {
-        $csvData = Writer::createFromString();
         $csvHeader = Writer::createFromString();
-        $headerDone = false;
+        $csvHeader->insertOne(
+            [
+                'title',
+                'description',
+                'link',
+                'pubDate',
+                'creator',
+            ]
+        );
 
+        $csvData = Writer::createFromString();
         foreach ($entries as $entry) {
-            $formatted = $this->entryFormatter->format($entry);
-            if (!$headerDone) {
-                $csvHeader->insertOne(array_keys($formatted));
-                $headerDone = true;
-            }
-            $csvData->insertOne($formatted);
+            $csvData->insertOne(
+                [
+                    $entry->getTitle(),
+                    $this->entryFormatter->formatDescription($entry->getDescription()),
+                    $entry->getLink(),
+                    $this->entryFormatter->formatDate($entry->getPubDate()),
+                    $entry->getCreator(),
+                ]
+            );
         }
 
         return new Output($csvHeader->getContent(), $csvData->getContent());
