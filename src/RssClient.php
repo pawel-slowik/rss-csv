@@ -28,8 +28,8 @@ class RssClient
     {
         $input = $this->fetchIter($inputUrl);
         $formatted = $this->formatIter($input);
-        list($header, $converted) = $this->convert($formatted);
-        $this->write($outputFilename, $header, $converted);
+        $output = $this->convert($formatted);
+        $this->write($outputFilename, $output->getHeader(), $output->getData());
     }
 
     protected function fetchIter(string $url): iterable
@@ -48,7 +48,7 @@ class RssClient
         }
     }
 
-    protected function convert(iterable $data): array
+    protected function convert(iterable $data): Output
     {
         $csvData = CsvWriter::createFromString();
         $csvHeader = CsvWriter::createFromString();
@@ -61,7 +61,7 @@ class RssClient
             $csvData->insertOne($entry);
         }
 
-        return [$csvHeader->getContent(), $csvData->getContent()];
+        return new Output($csvHeader->getContent(), $csvData->getContent());
     }
 
     protected function write(string $path, string $header, string $data): void
