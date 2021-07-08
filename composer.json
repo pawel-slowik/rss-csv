@@ -34,8 +34,7 @@
     "autoload-dev": {
         "psr-4": {
             "RssClient\\": [
-                "tests/",
-                "tests/Fake"
+                "tests/"
             ]
         }
     },
