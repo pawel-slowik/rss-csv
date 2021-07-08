@@ -9,6 +9,9 @@ use DateTime;
 use Laminas\Feed\Reader\Entry\EntryInterface;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \RssClient\EntryFactory
+ */
 class EntryFactoryTest extends TestCase
 {
     private $entryFactory;

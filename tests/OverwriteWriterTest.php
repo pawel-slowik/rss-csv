@@ -7,6 +7,9 @@ namespace RssClient;
 use RssClient\Writer\OverwriteWriter;
 use RssClient\Exception\RuntimeException;
 
+/**
+ * @covers \RssClient\Writer\OverwriteWriter
+ */
 class OverwriteWriterTest extends WriterTestBase
 {
     protected $writer;

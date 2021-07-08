@@ -7,6 +7,9 @@ namespace RssClient;
 use DateTime;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \RssClient\Entry
+ */
 class EntryTest extends TestCase
 {
     private $entry;

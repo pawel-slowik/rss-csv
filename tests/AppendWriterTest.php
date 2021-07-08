@@ -8,6 +8,9 @@ use RssClient\Writer\AppendWriter;
 use RssClient\Writer\OverwriteWriter;
 use RssClient\Exception\RuntimeException;
 
+/**
+ * @covers \RssClient\Writer\AppendWriter
+ */
 class AppendWriterTest extends WriterTestBase
 {
     protected $writer;

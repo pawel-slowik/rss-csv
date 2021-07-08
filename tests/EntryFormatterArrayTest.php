@@ -6,6 +6,9 @@ namespace RssClient;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \RssClient\EntryFormatter
+ */
 class EntryFormatterArrayTest extends TestCase
 {
     protected $formatter;

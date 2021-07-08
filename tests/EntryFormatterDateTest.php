@@ -6,6 +6,9 @@ namespace RssClient;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \RssClient\EntryFormatter
+ */
 class EntryFormatterDateTest extends TestCase
 {
     public function testDateFormat(): void
