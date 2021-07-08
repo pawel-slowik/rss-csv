@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Formatter;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \RssClient\EntryFormatter
+ * @covers \RssClient\Formatter\DescriptionFormatter
  */
-class EntryFormatterDescriptionTest extends TestCase
+class DescriptionFormatterTest extends TestCase
 {
-    protected $formatter;
+    private $formatter;
 
     protected function setUp(): void
     {
-        $this->formatter = new EntryFormatter();
+        $this->formatter = new DescriptionFormatter();
     }
 
     public function testDescriptionLink(): void
     {
         $input = 'foo <a href="asd">asd</a> bar';
-        $actual = $this->formatter->formatDescription($input);
+        $actual = $this->formatter->format($input);
         $expected = 'foo asd bar';
         $this->assertSame($actual, $expected);
     }
@@ -30,7 +30,7 @@ class EntryFormatterDescriptionTest extends TestCase
     {
         $input = '<script>window.onload = function() {var AllLinks=document.getElementsByTagName("a"); 
 AllLinks[0].href = "http://badexample.com/malicious.exe"; }</script>';
-        $actual = $this->formatter->formatDescription($input);
+        $actual = $this->formatter->format($input);
         $expected = '';
         $this->assertSame($actual, $expected);
     }
@@ -38,7 +38,7 @@ AllLinks[0].href = "http://badexample.com/malicious.exe"; }</script>';
     public function testDescriptionUrl(): void
     {
         $input = 'foo https://example.com/path/?query#fragment bar';
-        $actual = $this->formatter->formatDescription($input);
+        $actual = $this->formatter->format($input);
         $expected = 'foo  bar';
         $this->assertSame($actual, $expected);
     }
@@ -46,7 +46,7 @@ AllLinks[0].href = "http://badexample.com/malicious.exe"; }</script>';
     public function testDescriptionMultipleUrls(): void
     {
         $input = 'foo http://example.com/ bar https://whatever.test baz';
-        $actual = $this->formatter->formatDescription($input);
+        $actual = $this->formatter->format($input);
         $expected = 'foo  bar  baz';
         $this->assertSame($actual, $expected);
     }

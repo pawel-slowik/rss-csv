@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Formatter;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \RssClient\EntryFormatter
+ * @covers \RssClient\Formatter\DateFormatter
  */
-class EntryFormatterDateTest extends TestCase
+class DateFormatterTest extends TestCase
 {
     public function testDateFormat(): void
     {
-        $formatter = new EntryFormatter();
+        $formatter = new DateFormatter();
         $testDateTime = (new \DateTime())->setDate(2018, 10, 16)->setTime(15, 31, 33);
-        $actual = $formatter->formatDate($testDateTime);
+        $actual = $formatter->format($testDateTime);
         $expected = '16 października 2018 15:31:33';
         $this->assertSame($actual, $expected);
     }

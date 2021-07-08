@@ -5,14 +5,19 @@ declare(strict_types=1);
 namespace RssClient;
 
 use League\Csv\Writer;
+use RssClient\Formatter\DateFormatter;
+use RssClient\Formatter\DescriptionFormatter;
 
 class Converter
 {
-    private $entryFormatter;
+    private $dateFormatter;
+
+    private $descriptionFormatter;
 
     public function __construct()
     {
-        $this->entryFormatter = new EntryFormatter();
+        $this->dateFormatter = new DateFormatter();
+        $this->descriptionFormatter = new DescriptionFormatter();
     }
 
     public function convert(iterable $entries): Output
@@ -33,9 +38,9 @@ class Converter
             $csvData->insertOne(
                 [
                     $entry->getTitle(),
-                    $this->entryFormatter->formatDescription($entry->getDescription()),
+                    $this->descriptionFormatter->format($entry->getDescription()),
                     $entry->getLink(),
-                    $this->entryFormatter->formatDate($entry->getPubDate()),
+                    $this->dateFormatter->format($entry->getPubDate()),
                     $entry->getCreator(),
                 ]
             );
