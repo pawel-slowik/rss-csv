@@ -8,9 +8,9 @@ use RssClient\Exception\RuntimeException;
 
 class OverwriteWriter implements WriterInterface
 {
-    public function write(string $outputFileName, string $outputHeader, string $outputData): void
+    public function write(string $outputFileName, Output $output): void
     {
-        if (file_put_contents($outputFileName, $outputHeader . $outputData) === false) {
+        if (file_put_contents($outputFileName, $output->getHeader() . $output->getData()) === false) {
             throw new RuntimeException("can't save to output file: ${outputFileName}");
         }
     }

@@ -6,5 +6,5 @@ namespace RssClient\Writer;
 
 interface WriterInterface
 {
-    public function write(string $outputFileName, string $outputHeader, string $outputData): void;
+    public function write(string $outputFileName, Output $output): void;
 }

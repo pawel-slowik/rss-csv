@@ -30,6 +30,6 @@ class RssClient
     {
         $input = $this->reader->fetchIter($inputUrl);
         $output = $this->converter->convert($input);
-        $this->writer->write($outputFilename, $output->getHeader(), $output->getData());
+        $this->writer->write($outputFilename, $output);
     }
 }
