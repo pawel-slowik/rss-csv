@@ -9,9 +9,9 @@ use RssClient\Writer\WriterInterface;
 
 class RssClient
 {
-    private $writer;
-
     private $reader;
+
+    private $writer;
 
     private $converter;
 
