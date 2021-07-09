@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Formatter;
+namespace RssClient\Converter\Formatter;
 
 use HTMLPurifier;
 use HTMLPurifier_Config;

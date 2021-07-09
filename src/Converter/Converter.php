@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace RssClient\Converter;
 
 use League\Csv\Writer;
-use RssClient\Formatter\DateFormatter;
-use RssClient\Formatter\DescriptionFormatter;
+use RssClient\Converter\Formatter\DateFormatter;
+use RssClient\Converter\Formatter\DescriptionFormatter;
 use RssClient\Writer\Output;
 
 class Converter implements ConverterInterface

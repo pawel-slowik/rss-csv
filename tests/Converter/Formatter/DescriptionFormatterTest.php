@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Formatter;
+namespace RssClient\Converter\Formatter;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \RssClient\Formatter\DescriptionFormatter
+ * @covers \RssClient\Converter\Formatter\DescriptionFormatter
  */
 class DescriptionFormatterTest extends TestCase
 {
