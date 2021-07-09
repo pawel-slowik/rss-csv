@@ -5,11 +5,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
+use RssClient\Command\CsvCommand;
 use RssClient\Reader\Reader;
 use RssClient\RssClient;
-use RssClient\Writer\OverwriteWriter;
 use RssClient\Writer\AppendWriter;
-use RssClient\Command\CsvCommand;
+use RssClient\Writer\OverwriteWriter;
 
 $application = new Application();
 $reader = new Reader();
