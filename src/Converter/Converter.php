@@ -9,7 +9,7 @@ use RssClient\Formatter\DateFormatter;
 use RssClient\Formatter\DescriptionFormatter;
 use RssClient\Writer\Output;
 
-class Converter
+class Converter implements ConverterInterface
 {
     private $dateFormatter;
 

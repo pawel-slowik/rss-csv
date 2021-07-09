@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace RssClient;
 
 use RssClient\Converter\Converter;
+use RssClient\Converter\ConverterInterface;
 use RssClient\Reader\ReaderInterface;
 use RssClient\Writer\WriterInterface;
 
