@@ -7,6 +7,7 @@ namespace RssClient;
 use ArrayIterator;
 use DateTime;
 use PHPUnit\Framework\TestCase;
+use RssClient\Reader\Entry;
 
 /**
  * @covers \RssClient\Converter

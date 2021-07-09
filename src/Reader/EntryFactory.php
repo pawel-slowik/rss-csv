@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Reader;
 
 use Laminas\Feed\Reader\Entry\EntryInterface;
 

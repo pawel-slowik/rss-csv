@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace RssClient\Reader;
 
 use Laminas\Feed\Reader\Reader as FeedReader;
-use RssClient\EntryFactory;
 
 class Reader implements ReaderInterface
 {

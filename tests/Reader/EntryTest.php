@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Reader;
 
 use DateTime;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \RssClient\Entry
+ * @covers \RssClient\Reader\Entry
  */
 class EntryTest extends TestCase
 {

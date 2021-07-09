@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Reader;
 
 use ArrayIterator;
 use DateTime;
@@ -10,7 +10,7 @@ use Laminas\Feed\Reader\Entry\EntryInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \RssClient\EntryFactory
+ * @covers \RssClient\Reader\EntryFactory
  */
 class EntryFactoryTest extends TestCase
 {
