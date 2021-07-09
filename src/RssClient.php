@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace RssClient;
 
-use RssClient\Converter\Converter;
 use RssClient\Converter\ConverterInterface;
 use RssClient\Reader\ReaderInterface;
 use RssClient\Writer\WriterInterface;
@@ -19,11 +18,12 @@ class RssClient
 
     public function __construct(
         ReaderInterface $reader,
-        WriterInterface $writer
+        WriterInterface $writer,
+        ConverterInterface $converter
     ) {
         $this->reader = $reader;
         $this->writer = $writer;
-        $this->converter = new Converter();
+        $this->converter = $converter;
     }
 
     public function readAndSave(string $inputUrl, string $outputFilename): void
