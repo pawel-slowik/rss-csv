@@ -7,6 +7,7 @@ namespace RssClient;
 use League\Csv\Writer;
 use RssClient\Formatter\DateFormatter;
 use RssClient\Formatter\DescriptionFormatter;
+use RssClient\Writer\Output;
 
 class Converter
 {

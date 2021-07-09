@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Writer;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \RssClient\Output
+ * @covers \RssClient\Writer\Output
  */
 class OutputTest extends TestCase
 {
