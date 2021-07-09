@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Converter;
 
 use League\Csv\Writer;
 use RssClient\Formatter\DateFormatter;

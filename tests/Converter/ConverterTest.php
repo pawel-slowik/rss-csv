@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Converter;
 
 use ArrayIterator;
 use DateTime;
@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use RssClient\Reader\Entry;
 
 /**
- * @covers \RssClient\Converter
+ * @covers \RssClient\Converter\Converter
  */
 class ConverterTest extends TestCase
 {
