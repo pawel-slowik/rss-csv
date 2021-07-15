@@ -15,10 +15,12 @@ class Converter implements ConverterInterface
 
     private $descriptionFormatter;
 
-    public function __construct()
-    {
-        $this->dateFormatter = new DateFormatter();
-        $this->descriptionFormatter = new DescriptionFormatter();
+    public function __construct(
+        DateFormatter $dateFormatter,
+        DescriptionFormatter $descriptionFormatter
+    ) {
+        $this->dateFormatter = $dateFormatter;
+        $this->descriptionFormatter = $descriptionFormatter;
     }
 
     public function convert(iterable $entries): Output

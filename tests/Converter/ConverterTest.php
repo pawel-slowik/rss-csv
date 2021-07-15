@@ -7,6 +7,8 @@ namespace RssClient\Converter;
 use ArrayIterator;
 use DateTime;
 use PHPUnit\Framework\TestCase;
+use RssClient\Converter\Formatter\DateFormatter;
+use RssClient\Converter\Formatter\DescriptionFormatter;
 use RssClient\Reader\Entry;
 
 /**
@@ -20,7 +22,10 @@ class ConverterTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->converter = new Converter();
+        $this->converter = new Converter(
+            $this->createStub(DateFormatter::class),
+            $this->createStub(DescriptionFormatter::class)
+        );
     }
 
     /**
