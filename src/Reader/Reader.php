@@ -10,9 +10,9 @@ class Reader implements ReaderInterface
 {
     private $entryFactory;
 
-    public function __construct()
+    public function __construct(EntryFactory $entryFactory)
     {
-        $this->entryFactory = new EntryFactory();
+        $this->entryFactory = $entryFactory;
     }
 
     public function fetchIter(string $url): iterable

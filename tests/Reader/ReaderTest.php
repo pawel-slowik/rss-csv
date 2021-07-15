@@ -67,7 +67,7 @@ XML;
 
         LaminasReader::setHttpClient($client);
 
-        $this->reader = new Reader();
+        $this->reader = new Reader($this->createStub(EntryFactory::class));
     }
 
     public function testReturnsEntries(): void

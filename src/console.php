@@ -7,13 +7,14 @@ use Symfony\Component\Console\Application;
 
 use RssClient\Command\CsvCommand;
 use RssClient\Converter\Converter;
+use RssClient\Reader\EntryFactory;
 use RssClient\Reader\Reader;
 use RssClient\RssClient;
 use RssClient\Writer\AppendWriter;
 use RssClient\Writer\OverwriteWriter;
 
 $application = new Application();
-$reader = new Reader();
+$reader = new Reader(new EntryFactory());
 $converter = new Converter();
 
 $application->add(
