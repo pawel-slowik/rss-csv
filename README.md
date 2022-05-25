@@ -23,7 +23,3 @@ List of commands:
 Help for a command:
 
 	docker-compose run --rm dev-cli ./src/console.php command --help
-
-## TODO
-
-- More tests.
