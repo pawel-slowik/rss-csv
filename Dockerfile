@@ -2,6 +2,7 @@ FROM php:7.4-cli
 
 RUN apt-get update \
 	&& apt-get install -y libicu-dev && docker-php-ext-install intl && docker-php-ext-enable intl \
+	&& apt-get install -y libzip-dev && docker-php-ext-install zip && docker-php-ext-enable zip \
 	&& pecl install xdebug && docker-php-ext-enable xdebug
 
 # for PHPStan
