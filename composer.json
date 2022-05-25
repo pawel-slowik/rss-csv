@@ -9,13 +9,13 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.4.0",
         "symfony/console": "^4.3",
         "ezyang/htmlpurifier": "^4.11",
         "league/csv": "^9.3",
-        "ext-intl": "^7.3",
-        "ext-mbstring": "^7.3",
-        "ext-xml": "^7.3",
+        "ext-intl": "^7.4",
+        "ext-mbstring": "^7.4",
+        "ext-xml": "^7.4",
         "laminas/laminas-feed": "^2.13",
         "laminas/laminas-http": "^2.13"
     },
