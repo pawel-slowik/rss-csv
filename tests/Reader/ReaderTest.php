@@ -45,7 +45,7 @@ class ReaderTest extends TestCase
 </rss>
 XML;
 
-    private $reader;
+    private Reader $reader;
 
     protected function setUp(): void
     {

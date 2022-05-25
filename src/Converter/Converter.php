@@ -11,9 +11,9 @@ use RssClient\Writer\Output;
 
 class Converter implements ConverterInterface
 {
-    private $dateFormatter;
+    private DateFormatter $dateFormatter;
 
-    private $descriptionFormatter;
+    private DescriptionFormatter $descriptionFormatter;
 
     public function __construct(
         DateFormatter $dateFormatter,

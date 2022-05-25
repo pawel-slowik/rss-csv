@@ -10,11 +10,11 @@ use RssClient\Writer\WriterInterface;
 
 class RssClient
 {
-    private $reader;
+    private ReaderInterface $reader;
 
-    private $writer;
+    private WriterInterface $writer;
 
-    private $converter;
+    private ConverterInterface $converter;
 
     public function __construct(
         ReaderInterface $reader,

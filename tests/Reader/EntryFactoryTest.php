@@ -14,11 +14,11 @@ use PHPUnit\Framework\TestCase;
  */
 class EntryFactoryTest extends TestCase
 {
-    private $entryFactory;
+    private EntryFactory $entryFactory;
 
-    private $feedEntry;
+    private EntryInterface $feedEntry;
 
-    private $dateModified;
+    private DateTime $dateModified;
 
     protected function setUp(): void
     {
@@ -43,6 +43,8 @@ class EntryFactoryTest extends TestCase
     }
 
     /**
+     * @param null|iterable<array{'email': string, 'name': string}> $entryAuthors
+     * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
      * @dataProvider missingCreatorDataProvider
      */
     public function testMissingCreator(?iterable $entryAuthors, ?iterable $feedAuthors): void
@@ -54,6 +56,9 @@ class EntryFactoryTest extends TestCase
         $this->assertNull($entry->getCreator());
     }
 
+    /**
+     * @return array<array{0: null|iterable, 1: null|iterable}>
+     */
     public function missingCreatorDataProvider(): array
     {
         return [

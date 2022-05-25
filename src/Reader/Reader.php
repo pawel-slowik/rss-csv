@@ -8,7 +8,7 @@ use Laminas\Feed\Reader\Reader as FeedReader;
 
 class Reader implements ReaderInterface
 {
-    private $entryFactory;
+    private EntryFactory $entryFactory;
 
     public function __construct(EntryFactory $entryFactory)
     {

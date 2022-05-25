@@ -18,7 +18,7 @@ class ConverterTest extends TestCase
 {
     private const EXPECTED_HEADER = "title,description,link,pubDate,creator\n";
 
-    private $converter;
+    private Converter $converter;
 
     protected function setUp(): void
     {
@@ -29,6 +29,7 @@ class ConverterTest extends TestCase
     }
 
     /**
+     * @param Entry[] $entries
      * @dataProvider lineCountDataProvider
      */
     public function testHeaderForArray(array $entries): void
@@ -39,6 +40,7 @@ class ConverterTest extends TestCase
     }
 
     /**
+     * @param Entry[] $entries
      * @dataProvider lineCountDataProvider
      */
     public function testHeaderForIterable(array $entries): void
@@ -49,6 +51,7 @@ class ConverterTest extends TestCase
     }
 
     /**
+     * @param Entry[] $entries
      * @dataProvider lineCountDataProvider
      */
     public function testLineCountForArray(array $entries): void
@@ -62,6 +65,7 @@ class ConverterTest extends TestCase
     }
 
     /**
+     * @param Entry[] $entries
      * @dataProvider lineCountDataProvider
      */
     public function testLineCountForIterable(array $entries): void
@@ -74,6 +78,9 @@ class ConverterTest extends TestCase
         $this->assertSame($entryCount, $lineCount);
     }
 
+    /**
+     * @return array<array{0: Entry[]}>
+     */
     public function lineCountDataProvider(): array
     {
         $entry = $this->createEmptyEntryStub();

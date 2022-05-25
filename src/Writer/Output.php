@@ -6,9 +6,9 @@ namespace RssClient\Writer;
 
 class Output
 {
-    private $header;
+    private string $header;
 
-    private $data;
+    private string $data;
 
     public function __construct(
         string $header,

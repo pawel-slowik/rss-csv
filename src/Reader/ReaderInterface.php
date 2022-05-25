@@ -6,5 +6,8 @@ namespace RssClient\Reader;
 
 interface ReaderInterface
 {
+    /**
+     * @return iterable<Entry>
+     */
     public function fetchIter(string $url): iterable;
 }

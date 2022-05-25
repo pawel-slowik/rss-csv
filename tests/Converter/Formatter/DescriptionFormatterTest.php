@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DescriptionFormatterTest extends TestCase
 {
-    private $formatter;
+    private DescriptionFormatter $formatter;
 
     protected function setUp(): void
     {

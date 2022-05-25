@@ -14,11 +14,11 @@ use PHPUnit\Framework\TestCase;
  */
 class CsvCommandTest extends TestCase
 {
-    private $input;
+    private InputInterface $input;
 
-    private $output;
+    private OutputInterface $output;
 
-    private $rssClient;
+    private RssClient $rssClient;
 
     protected function setUp(): void
     {

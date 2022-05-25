@@ -8,15 +8,15 @@ use DateTime;
 
 class Entry
 {
-    private $title;
+    private string $title;
 
-    private $description;
+    private string $description;
 
-    private $link;
+    private string $link;
 
-    private $pubDate;
+    private DateTime $pubDate;
 
-    private $creator;
+    private ?string $creator;
 
     public function __construct(
         string $title,

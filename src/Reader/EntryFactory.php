@@ -8,6 +8,9 @@ use Laminas\Feed\Reader\Entry\EntryInterface;
 
 class EntryFactory
 {
+    /**
+     * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
+     */
     public function fromFeedEntryAndAuthors(EntryInterface $entry, ?iterable $feedAuthors): Entry
     {
         return new Entry(
@@ -19,6 +22,10 @@ class EntryFactory
         );
     }
 
+    /**
+     * @param null|iterable<array{'email': string, 'name': string}> $entryAuthors
+     * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
+     */
     private function getEntryCreator(?iterable $entryAuthors, ?iterable $feedAuthors): ?string
     {
         foreach ([$entryAuthors, $feedAuthors] as $authors) {
@@ -37,6 +44,9 @@ class EntryFactory
         return null;
     }
 
+    /**
+     * @param array<array{'email': string, 'name': string}> $authors
+     */
     private function authorsArrayToString(array $authors): string
     {
         return implode(' ', array_map(
@@ -47,6 +57,11 @@ class EntryFactory
         ));
     }
 
+    /**
+     * @param null|iterable<array{'email': string, 'name': string}> $authors
+     *
+     * @return array<array{'email': string, 'name': string}>
+     */
     private function iterableToArray(?iterable $authors): array
     {
         if (is_array($authors)) {

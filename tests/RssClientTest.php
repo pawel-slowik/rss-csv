@@ -14,13 +14,13 @@ use RssClient\Writer\WriterInterface;
  */
 class RssClientTest extends TestCase
 {
-    private $rssClient;
+    private RssClient $rssClient;
 
-    private $reader;
+    private ReaderInterface $reader;
 
-    private $writer;
+    private WriterInterface $writer;
 
-    private $converter;
+    private ConverterInterface $converter;
 
     protected function setUp(): void
     {

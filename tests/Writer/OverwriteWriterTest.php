@@ -11,11 +11,11 @@ use RssClient\Exception\RuntimeException;
  */
 class OverwriteWriterTest extends WriterTestBase
 {
-    private $writer;
+    private OverwriteWriter $writer;
 
-    private $newOutput;
+    private Output $newOutput;
 
-    private $overwrittenOutput;
+    private Output $overwrittenOutput;
 
     protected function setUp(): void
     {

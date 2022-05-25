@@ -12,9 +12,9 @@ use PHPUnit\Framework\TestCase;
  */
 class EntryTest extends TestCase
 {
-    private $entry;
+    private Entry $entry;
 
-    private $pubDate;
+    private DateTime $pubDate;
 
     protected function setUp(): void
     {

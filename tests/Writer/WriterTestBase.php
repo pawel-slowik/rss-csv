@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class WriterTestBase extends TestCase
 {
-    protected $tmpFilename;
+    protected string $tmpFilename;
 
     protected function setUp(): void
     {
