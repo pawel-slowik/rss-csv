@@ -11,17 +11,18 @@ Note: this is a job interview task, not a complete solution.
 
 ## Installation
 
-	composer install
+	docker-compose build dev-cli
+	docker-compose run --rm dev-cli composer install
 
 ## Usage
 
 List of commands:
 
-	php ./src/console.php list
+	docker-compose run --rm dev-cli ./src/console.php list
 
 Help for a command:
 
-	php ./src/console.php command --help
+	docker-compose run --rm dev-cli ./src/console.php command --help
 
 ## TODO
 

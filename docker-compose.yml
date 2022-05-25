@@ -1,0 +1,10 @@
+version: "3.4"
+
+services:
+
+  dev-cli:
+    build: .
+    image: rss-csv-dev-cli
+    volumes:
+      - .:/home
+    working_dir: /home
