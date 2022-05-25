@@ -67,6 +67,6 @@ class AppendWriterTest extends WriterTestBase
     {
         $this->expectException(RuntimeException::class);
 
-        @$this->writer->write('', $this->appendedOutput);
+        @$this->writer->write('/', $this->appendedOutput);
     }
 }

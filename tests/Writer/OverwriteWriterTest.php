@@ -74,6 +74,6 @@ class OverwriteWriterTest extends WriterTestBase
     {
         $this->expectException(RuntimeException::class);
 
-        @$this->writer->write('', $this->newOutput);
+        @$this->writer->write('/', $this->newOutput);
     }
 }
