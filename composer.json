@@ -10,14 +10,14 @@
     ],
     "require": {
         "php": "^8.1",
-        "symfony/console": "^4.3",
-        "ezyang/htmlpurifier": "^4.11",
-        "league/csv": "^9.3",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-xml": "*",
+        "ezyang/htmlpurifier": "^4.11",
         "laminas/laminas-feed": "^2.13",
-        "laminas/laminas-http": "^2.13"
+        "laminas/laminas-http": "^2.13",
+        "league/csv": "^9.3",
+        "symfony/console": "^4.3"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.2",
@@ -59,5 +59,8 @@
             "vendor/bin/php-cs-fixer fix -v",
             "vendor/bin/phpcbf src tests"
         ]
+    },
+    "config": {
+        "sort-packages": true
     }
 }
