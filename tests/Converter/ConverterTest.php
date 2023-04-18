@@ -36,7 +36,7 @@ class ConverterTest extends TestCase
     {
         $output = $this->converter->convert($entries);
 
-        $this->assertSame(self::EXPECTED_HEADER, $output->getHeader());
+        $this->assertSame(self::EXPECTED_HEADER, $output->header);
     }
 
     /**
@@ -47,7 +47,7 @@ class ConverterTest extends TestCase
     {
         $output = $this->converter->convert(new ArrayIterator($entries));
 
-        $this->assertSame(self::EXPECTED_HEADER, $output->getHeader());
+        $this->assertSame(self::EXPECTED_HEADER, $output->header);
     }
 
     /**
@@ -59,7 +59,7 @@ class ConverterTest extends TestCase
         $output = $this->converter->convert($entries);
 
         $entryCount = count($entries);
-        $lineCount = substr_count($output->getData(), "\n");
+        $lineCount = substr_count($output->data, "\n");
 
         $this->assertSame($entryCount, $lineCount);
     }
@@ -73,7 +73,7 @@ class ConverterTest extends TestCase
         $output = $this->converter->convert(new ArrayIterator($entries));
 
         $entryCount = count($entries);
-        $lineCount = substr_count($output->getData(), "\n");
+        $lineCount = substr_count($output->data, "\n");
 
         $this->assertSame($entryCount, $lineCount);
     }

@@ -21,21 +21,9 @@ class OverwriteWriterTest extends WriterTestBase
     {
         $this->writer = new OverwriteWriter();
 
-        $this->newOutput = $this->createStub(Output::class);
-        $this->newOutput
-            ->method('getHeader')
-            ->willReturn("test1\n");
-        $this->newOutput
-            ->method('getData')
-            ->willReturn("test2\n");
+        $this->newOutput = new Output("test1\n", "test2\n");
 
-        $this->overwrittenOutput = $this->createStub(Output::class);
-        $this->overwrittenOutput
-            ->method('getHeader')
-            ->willReturn("header\n");
-        $this->overwrittenOutput
-            ->method('getData')
-            ->willReturn("data\n");
+        $this->overwrittenOutput = new Output("header\n", "data\n");
 
         parent::setUp();
     }

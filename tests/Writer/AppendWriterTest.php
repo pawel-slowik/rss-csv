@@ -24,21 +24,9 @@ class AppendWriterTest extends WriterTestBase
         $this->writer = new AppendWriter();
         $this->overwriteWriter = new OverwriteWriter();
 
-        $this->previousOutput = $this->createStub(Output::class);
-        $this->previousOutput
-            ->method('getHeader')
-            ->willReturn("header\n");
-        $this->previousOutput
-            ->method('getData')
-            ->willReturn("data\n");
+        $this->previousOutput = new Output("header\n", "data\n");
 
-        $this->appendedOutput = $this->createStub(Output::class);
-        $this->appendedOutput
-            ->method('getHeader')
-            ->willReturn("test1\n");
-        $this->appendedOutput
-            ->method('getData')
-            ->willReturn("test2\n");
+        $this->appendedOutput = new Output("test1\n", "test2\n");
 
         parent::setUp();
     }

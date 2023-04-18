@@ -10,7 +10,7 @@ class OverwriteWriter implements WriterInterface
 {
     public function write(string $outputFileName, Output $output): void
     {
-        if (file_put_contents($outputFileName, $output->getHeader() . $output->getData()) === false) {
+        if (file_put_contents($outputFileName, $output->header . $output->data) === false) {
             throw new RuntimeException("can't save to output file: ${outputFileName}");
         }
     }

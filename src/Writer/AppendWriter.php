@@ -11,7 +11,7 @@ class AppendWriter implements WriterInterface
     public function write(string $outputFileName, Output $output): void
     {
         // skip the header when appending
-        if (file_put_contents($outputFileName, $output->getData(), FILE_APPEND) === false) {
+        if (file_put_contents($outputFileName, $output->data, FILE_APPEND) === false) {
             throw new RuntimeException("can't save to output file: ${outputFileName}");
         }
     }
