@@ -83,7 +83,7 @@ class ConverterTest extends TestCase
      */
     public function lineCountDataProvider(): array
     {
-        $entry = $this->createEmptyEntryStub();
+        $entry = new Entry('', '', '', new DateTime(), '');
 
         return [
             [
@@ -96,17 +96,5 @@ class ConverterTest extends TestCase
                 array_fill(0, 100, $entry)
             ],
         ];
-    }
-
-    private function createEmptyEntryStub(): Entry
-    {
-        $entry = $this->createStub(Entry::class);
-        $entry->method('getTitle')->willReturn('');
-        $entry->method('getDescription')->willReturn('');
-        $entry->method('getLink')->willReturn('');
-        $entry->method('getPubDate')->willReturn(new DateTime());
-        $entry->method('getCreator')->willReturn('');
-
-        return $entry;
     }
 }

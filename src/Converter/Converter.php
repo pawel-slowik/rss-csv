@@ -40,11 +40,11 @@ class Converter implements ConverterInterface
         foreach ($entries as $entry) {
             $csvData->insertOne(
                 [
-                    $entry->getTitle(),
-                    $this->descriptionFormatter->format($entry->getDescription()),
-                    $entry->getLink(),
-                    $this->dateFormatter->format($entry->getPubDate()),
-                    $entry->getCreator(),
+                    $entry->title,
+                    $this->descriptionFormatter->format($entry->description),
+                    $entry->link,
+                    $this->dateFormatter->format($entry->pubDate),
+                    $entry->creator,
                 ]
             );
         }

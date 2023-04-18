@@ -36,10 +36,10 @@ class EntryFactoryTest extends TestCase
     {
         $entry = $this->entryFactory->fromFeedEntryAndAuthors($this->feedEntry, null);
 
-        $this->assertSame('foo', $entry->getTitle());
-        $this->assertSame('bar', $entry->getDescription());
-        $this->assertSame('baz', $entry->getLink());
-        $this->assertSame($this->dateModified, $entry->getPubDate());
+        $this->assertSame('foo', $entry->title);
+        $this->assertSame('bar', $entry->description);
+        $this->assertSame('baz', $entry->link);
+        $this->assertSame($this->dateModified, $entry->pubDate);
     }
 
     /**
@@ -53,7 +53,7 @@ class EntryFactoryTest extends TestCase
 
         $entry = $this->entryFactory->fromFeedEntryAndAuthors($this->feedEntry, $feedAuthors);
 
-        $this->assertNull($entry->getCreator());
+        $this->assertNull($entry->creator);
     }
 
     /**
@@ -84,7 +84,7 @@ class EntryFactoryTest extends TestCase
 
         $entry = $this->entryFactory->fromFeedEntryAndAuthors($this->feedEntry, null);
 
-        $this->assertSame('alice@example.com Alice', $entry->getCreator());
+        $this->assertSame('alice@example.com Alice', $entry->creator);
     }
 
     public function testSupportsIterableAsEntryAuthors(): void
@@ -99,7 +99,7 @@ class EntryFactoryTest extends TestCase
 
         $entry = $this->entryFactory->fromFeedEntryAndAuthors($this->feedEntry, null);
 
-        $this->assertSame('alice@example.com Alice', $entry->getCreator());
+        $this->assertSame('alice@example.com Alice', $entry->creator);
     }
 
     public function testSupportsArrayAsFeedAuthors(): void
@@ -113,7 +113,7 @@ class EntryFactoryTest extends TestCase
             [['name' => 'Bob', 'email' => 'bob@example.com']]
         );
 
-        $this->assertSame('bob@example.com Bob', $entry->getCreator());
+        $this->assertSame('bob@example.com Bob', $entry->creator);
     }
 
     public function testSupportsIterableAsFeedAuthors(): void
@@ -127,7 +127,7 @@ class EntryFactoryTest extends TestCase
             )
         );
 
-        $this->assertSame('bob@example.com Bob', $entry->getCreator());
+        $this->assertSame('bob@example.com Bob', $entry->creator);
     }
 
     public function testShouldUseFeedAuthorsIfEntryAuthorsNotAvailable(): void
@@ -141,7 +141,7 @@ class EntryFactoryTest extends TestCase
             [['name' => 'Bob', 'email' => 'bob@example.com']]
         );
 
-        $this->assertSame('bob@example.com Bob', $entry->getCreator());
+        $this->assertSame('bob@example.com Bob', $entry->creator);
     }
 
     public function testShouldNotUseFeedAuthorsIfEntryAuthorsAvailable(): void
@@ -157,7 +157,7 @@ class EntryFactoryTest extends TestCase
             []
         );
 
-        $this->assertSame('alice@example.com Alice', $entry->getCreator());
+        $this->assertSame('alice@example.com Alice', $entry->creator);
     }
 
     public function testShouldMergeMultipleEntryAuthors(): void
@@ -176,7 +176,7 @@ class EntryFactoryTest extends TestCase
             []
         );
 
-        $this->assertSame('alice@example.com Alice bob@example.com Bob', $entry->getCreator());
+        $this->assertSame('alice@example.com Alice bob@example.com Bob', $entry->creator);
     }
 
     public function testShouldMergeMultipleFeedAuthors(): void
@@ -193,6 +193,6 @@ class EntryFactoryTest extends TestCase
             ],
         );
 
-        $this->assertSame('jane@example.org Jane john@example.org John', $entry->getCreator());
+        $this->assertSame('jane@example.org Jane john@example.org John', $entry->creator);
     }
 }
