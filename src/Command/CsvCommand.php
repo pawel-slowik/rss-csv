@@ -33,6 +33,6 @@ class CsvCommand extends Command
         $path = $input->getArgument('path');
         $this->rssClient->readAndSave($url, $path);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }
