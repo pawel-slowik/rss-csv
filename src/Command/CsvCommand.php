@@ -28,9 +28,11 @@ class CsvCommand extends Command
     protected function execute(// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
         InputInterface $input,
         OutputInterface $output
-    ): void {
+    ): int {
         $url = $input->getArgument('url');
         $path = $input->getArgument('path');
         $this->rssClient->readAndSave($url, $path);
+
+        return 0;
     }
 }
