@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RssClient\Converter\Formatter;
 
+use DateTimeInterface;
 use IntlDateFormatter;
 
 class DateFormatter
@@ -13,7 +14,7 @@ class DateFormatter
 
     private const LOCALE = 'pl_PL';
 
-    public function format(object $date): string
+    public function format(DateTimeInterface $date): string
     {
         return IntlDateFormatter::formatObject($date, self::FORMAT, self::LOCALE);
     }

@@ -6,6 +6,7 @@ namespace RssClient\Converter\Formatter;
 
 use HTMLPurifier;
 use HTMLPurifier_Config;
+use UnexpectedValueException;
 
 class DescriptionFormatter
 {
@@ -35,6 +36,9 @@ class DescriptionFormatter
 
         // strip URLs
         $stripped = preg_replace(self::URL_REGEXP, '', $clean);
+        if ($stripped === null) {
+            throw new UnexpectedValueException();
+        }
 
         return $stripped;
     }

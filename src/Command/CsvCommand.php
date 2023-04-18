@@ -29,7 +29,9 @@ class CsvCommand extends Command
         InputInterface $input,
         OutputInterface $output
     ): int {
+        /** @var string $url */
         $url = $input->getArgument('url');
+        /** @var string $path */
         $path = $input->getArgument('path');
         $this->rssClient->readAndSave($url, $path);
 

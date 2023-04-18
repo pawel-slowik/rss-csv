@@ -64,6 +64,9 @@ class EntryFactory
      */
     private function iterableToArray(?iterable $authors): array
     {
+        if ($authors === null) {
+            return [];
+        }
         if (is_array($authors)) {
             return $authors;
         }
