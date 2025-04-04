@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RssClient;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use RssClient\Converter\ConverterInterface;
 use RssClient\Reader\ReaderInterface;
@@ -16,11 +17,11 @@ class RssClientTest extends TestCase
 {
     private RssClient $rssClient;
 
-    private ReaderInterface $reader;
+    private ReaderInterface&MockObject $reader;
 
-    private WriterInterface $writer;
+    private WriterInterface&MockObject $writer;
 
-    private ConverterInterface $converter;
+    private ConverterInterface&MockObject $converter;
 
     protected function setUp(): void
     {

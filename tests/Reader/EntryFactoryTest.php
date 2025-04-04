@@ -7,6 +7,7 @@ namespace RssClient\Reader;
 use ArrayIterator;
 use DateTime;
 use Laminas\Feed\Reader\Entry\EntryInterface;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,9 +17,9 @@ class EntryFactoryTest extends TestCase
 {
     private EntryFactory $entryFactory;
 
-    private EntryInterface $feedEntry;
+    private EntryInterface&Stub $feedEntry;
 
-    private DateTime $dateModified;
+    private DateTime&Stub $dateModified;
 
     protected function setUp(): void
     {
@@ -58,7 +59,7 @@ class EntryFactoryTest extends TestCase
     }
 
     /**
-     * @return array<array{0: null|iterable, 1: null|iterable}>
+     * @return array<array{0: null|iterable<mixed>, 1: null|iterable<mixed>}>
      */
     public function missingCreatorDataProvider(): array
     {

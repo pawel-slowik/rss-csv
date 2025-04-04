@@ -7,6 +7,7 @@ namespace RssClient\Command;
 use RssClient\RssClient;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,7 +19,7 @@ class CsvCommandTest extends TestCase
 
     private OutputInterface $output;
 
-    private RssClient $rssClient;
+    private RssClient&MockObject $rssClient;
 
     protected function setUp(): void
     {

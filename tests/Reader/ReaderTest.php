@@ -62,8 +62,7 @@ XML;
         $client = $this->createStub(LaminasHttpClientInterface::class);
         $client
             ->method('get')
-            ->with($this->equalTo(self::FEED_URL))
-            ->willReturn($response);
+            ->willReturnMap([[self::FEED_URL, $response]]);
 
         LaminasReader::setHttpClient($client);
 
