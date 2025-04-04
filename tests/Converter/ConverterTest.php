@@ -30,6 +30,7 @@ class ConverterTest extends TestCase
 
     /**
      * @param Entry[] $entries
+     *
      * @dataProvider lineCountDataProvider
      */
     public function testHeaderForArray(array $entries): void
@@ -41,6 +42,7 @@ class ConverterTest extends TestCase
 
     /**
      * @param Entry[] $entries
+     *
      * @dataProvider lineCountDataProvider
      */
     public function testHeaderForIterable(array $entries): void
@@ -52,6 +54,7 @@ class ConverterTest extends TestCase
 
     /**
      * @param Entry[] $entries
+     *
      * @dataProvider lineCountDataProvider
      */
     public function testLineCountForArray(array $entries): void
@@ -66,6 +69,7 @@ class ConverterTest extends TestCase
 
     /**
      * @param Entry[] $entries
+     *
      * @dataProvider lineCountDataProvider
      */
     public function testLineCountForIterable(array $entries): void

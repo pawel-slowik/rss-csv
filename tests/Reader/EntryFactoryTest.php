@@ -45,6 +45,7 @@ class EntryFactoryTest extends TestCase
     /**
      * @param null|iterable<array{'email': string, 'name': string}> $entryAuthors
      * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
+     *
      * @dataProvider missingCreatorDataProvider
      */
     public function testMissingCreator(?iterable $entryAuthors, ?iterable $feedAuthors): void
