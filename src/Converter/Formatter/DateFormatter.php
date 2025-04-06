@@ -6,6 +6,7 @@ namespace RssClient\Converter\Formatter;
 
 use DateTimeInterface;
 use IntlDateFormatter;
+use UnexpectedValueException;
 
 class DateFormatter
 {
@@ -16,6 +17,11 @@ class DateFormatter
 
     public function format(DateTimeInterface $date): string
     {
-        return IntlDateFormatter::formatObject($date, self::FORMAT, self::LOCALE);
+        $formattedDateTime = IntlDateFormatter::formatObject($date, self::FORMAT, self::LOCALE);
+        if ($formattedDateTime === false) {
+            throw new UnexpectedValueException();
+        }
+
+        return $formattedDateTime;
     }
 }
