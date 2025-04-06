@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace RssClient\Reader;
 
 use Laminas\Feed\Reader\Entry\EntryInterface;
+use UnexpectedValueException;
 
 class EntryFactory
 {
@@ -13,11 +14,16 @@ class EntryFactory
      */
     public function fromFeedEntryAndAuthors(EntryInterface $entry, ?iterable $feedAuthors): Entry
     {
+        $pubDate = $entry->getDateModified() ?? $entry->getDateCreated();
+        if ($pubDate === null) {
+            throw new UnexpectedValueException();
+        }
+
         return new Entry(
             $entry->getTitle(),
             $entry->getDescription(),
             $entry->getLink(),
-            $entry->getDateModified(),
+            $pubDate,
             $this->getEntryCreator($entry->getAuthors(), $feedAuthors)
         );
     }

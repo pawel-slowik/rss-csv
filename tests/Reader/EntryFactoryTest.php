@@ -10,6 +10,7 @@ use Laminas\Feed\Reader\Entry\EntryInterface;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use RssClient\Reader\EntryFactory;
+use UnexpectedValueException;
 
 /**
  * @covers \RssClient\Reader\EntryFactory
@@ -194,5 +195,48 @@ class EntryFactoryTest extends TestCase
         );
 
         $this->assertSame('jane@example.org Jane john@example.org John', $entry->creator);
+    }
+
+    public function testShouldUseModificationDateIfAvailable(): void
+    {
+        $feedEntry = $this->createEmptyEntryStub();
+        $feedEntry->method('getDateCreated')->willReturn((new DateTime())->setTimestamp(1_222_333_444));
+        $feedEntry->method('getDateModified')->willReturn((new DateTime())->setTimestamp(1_222_333_555));
+
+        $entry = $this->entryFactory->fromFeedEntryAndAuthors($feedEntry, null);
+
+        $this->assertSame(1_222_333_555, $entry->pubDate->getTimestamp());
+    }
+
+    public function testShouldUseCreationDateIfModificationDateNotAvailable(): void
+    {
+        $feedEntry = $this->createEmptyEntryStub();
+        $feedEntry->method('getDateCreated')->willReturn((new DateTime())->setTimestamp(1_222_333_444));
+        $feedEntry->method('getDateModified')->willReturn(null);
+
+        $entry = $this->entryFactory->fromFeedEntryAndAuthors($feedEntry, null);
+
+        $this->assertSame(1_222_333_444, $entry->pubDate->getTimestamp());
+    }
+
+    public function testShouldThrowExceptionWhenNoDateAvailable(): void
+    {
+        $feedEntry = $this->createEmptyEntryStub();
+        $feedEntry->method('getDateCreated')->willReturn(null);
+        $feedEntry->method('getDateModified')->willReturn(null);
+
+        $this->expectException(UnexpectedValueException::class);
+
+        $this->entryFactory->fromFeedEntryAndAuthors($feedEntry, null);
+    }
+
+    private function createEmptyEntryStub(): EntryInterface&Stub
+    {
+        $feedEntry = $this->createStub(EntryInterface::class);
+        $feedEntry->method('getTitle')->willReturn('');
+        $feedEntry->method('getDescription')->willReturn('');
+        $feedEntry->method('getLink')->willReturn('');
+
+        return $feedEntry;
     }
 }
