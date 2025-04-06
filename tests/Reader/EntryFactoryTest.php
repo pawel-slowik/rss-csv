@@ -60,7 +60,7 @@ class EntryFactoryTest extends TestCase
     /**
      * @return array<array{0: null|iterable<mixed>, 1: null|iterable<mixed>}>
      */
-    public function missingCreatorDataProvider(): array
+    public static function missingCreatorDataProvider(): array
     {
         return [
             [null, null],

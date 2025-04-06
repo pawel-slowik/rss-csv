@@ -83,6 +83,9 @@ XML;
     {
         $entries = $this->reader->fetchIter(self::FEED_URL);
 
+        if (!is_array($entries)) {
+            $entries = iterator_to_array($entries);
+        }
         $this->assertCount(2, $entries);
     }
 }

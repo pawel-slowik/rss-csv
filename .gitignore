@@ -4,6 +4,6 @@
 
 /phpunit.xml
 /.php_cs.cache
-/.phpunit.result.cache
+/.phpunit.cache
 /*.csv
 /.php-cs-fixer.cache

@@ -86,7 +86,7 @@ class ConverterTest extends TestCase
     /**
      * @return array<array{0: Entry[]}>
      */
-    public function lineCountDataProvider(): array
+    public static function lineCountDataProvider(): array
     {
         $entry = new Entry('', '', '', new DateTime(), '');
 
