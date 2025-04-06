@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RssClient\Reader;
 
+use Laminas\Feed\Reader\Entry\EntryInterface;
 use Laminas\Feed\Reader\Reader as FeedReader;
 
 class Reader implements ReaderInterface
@@ -19,6 +20,7 @@ class Reader implements ReaderInterface
     {
         $feed = FeedReader::import($url);
         $feedAuthors = $feed->getAuthors();
+        /** @var EntryInterface $entry */
         foreach ($feed as $entry) {
             yield $this->entryFactory->fromFeedEntryAndAuthors($entry, $feedAuthors);
         }
