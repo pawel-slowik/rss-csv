@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RssClient\Test\Writer;
 
+use LogicException;
 use PHPUnit\Framework\TestCase;
 
 class WriterTestBase extends TestCase
@@ -12,7 +13,8 @@ class WriterTestBase extends TestCase
 
     protected function setUp(): void
     {
-        $this->tmpFilename = tempnam(sys_get_temp_dir(), __CLASS__);
+        $tmpFilename = tempnam(sys_get_temp_dir(), __CLASS__) or throw new LogicException();
+        $this->tmpFilename = $tmpFilename;
         unlink($this->tmpFilename);
     }
 
