@@ -10,7 +10,7 @@ use UnexpectedValueException;
 class EntryFactory
 {
     /**
-     * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
+     * @param null|iterable<mixed> $feedAuthors
      */
     public function fromFeedEntryAndAuthors(EntryInterface $entry, ?iterable $feedAuthors): Entry
     {
@@ -29,8 +29,8 @@ class EntryFactory
     }
 
     /**
-     * @param null|iterable<array{'email': string, 'name': string}> $entryAuthors
-     * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
+     * @param null|iterable<mixed> $entryAuthors
+     * @param null|iterable<mixed> $feedAuthors
      */
     private function getEntryCreator(?iterable $entryAuthors, ?iterable $feedAuthors): ?string
     {
@@ -51,22 +51,37 @@ class EntryFactory
     }
 
     /**
-     * @param array<array{'email': string, 'name': string}> $authors
+     * @param array<mixed> $authors
      */
     private function authorsArrayToString(array $authors): string
     {
-        return implode(' ', array_map(
-            function ($author) {
-                return $author['email'] . ' ' . $author['name'];
-            },
-            $authors
-        ));
+        return implode(' ', array_map($this->authorAsString(...), $authors));
+    }
+
+    private function authorAsString(mixed $author): string
+    {
+        if (!is_array($author)) {
+            return '';
+        }
+
+        $parts = [];
+        if (array_key_exists('email', $author)) {
+            $parts[] = $author['email'];
+        }
+        if (array_key_exists('name', $author)) {
+            $parts[] = $author['name'];
+        }
+        if (empty($parts)) {
+            return '';
+        }
+
+        return implode(' ', $parts);
     }
 
     /**
-     * @param null|iterable<array{'email': string, 'name': string}> $authors
+     * @param null|iterable<mixed> $authors
      *
-     * @return array<array{'email': string, 'name': string}>
+     * @return array<mixed>
      */
     private function iterableToArray(?iterable $authors): array
     {

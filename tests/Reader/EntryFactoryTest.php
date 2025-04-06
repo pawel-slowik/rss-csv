@@ -43,8 +43,8 @@ class EntryFactoryTest extends TestCase
     }
 
     /**
-     * @param null|iterable<array{'email': string, 'name': string}> $entryAuthors
-     * @param null|iterable<array{'email': string, 'name': string}> $feedAuthors
+     * @param null|iterable<mixed> $entryAuthors
+     * @param null|iterable<mixed> $feedAuthors
      *
      * @dataProvider missingCreatorDataProvider
      */
