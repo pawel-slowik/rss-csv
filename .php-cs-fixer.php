@@ -30,19 +30,19 @@ return (new \PhpCsFixer\Config())
         'class_attributes_separation' => ['elements' => ['const', 'method']], // @Symfony
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
-        'compact_nullable_typehint' => true,
+        'compact_nullable_type_declaration' => true,
         'concat_space' => ['spacing' => 'one'], // @Symfony
         'declare_equal_normalize' => true, // @Symfony
         'dir_constant' => true, // @Symfony:risky
         'echo_tag_syntax' => ['format' => 'long'],
         'ereg_to_preg' => true, // @Symfony:risky
         'error_suppression' => true, // @Symfony:risky
-        'escape_implicit_backslashes' => true,
+        'string_implicit_backslashes' => true,
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
         'fully_qualified_strict_types' => true,
         'function_to_constant' => true, // @Symfony:risky
-        'function_typehint_space' => true, // @Symfony
+        'type_declaration_spaces' => true, // @Symfony
         'general_phpdoc_annotation_remove' => ['annotations' => ['author', 'category', 'package', 'copyright', 'version']],
         'general_phpdoc_tag_rename' => ['replacements' => ['inheritDocs' => 'inheritDoc']],
         'header_comment' => ['header' => $header, 'comment_type' => 'comment'],
@@ -80,12 +80,11 @@ return (new \PhpCsFixer\Config())
         'no_spaces_around_offset' => true, // @Symfony
         'no_superfluous_elseif' => true,
         'no_superfluous_phpdoc_tags' => true,
-        'no_trailing_comma_in_list_call' => true, // @Symfony
-        'no_trailing_comma_in_singleline_array' => true, // @Symfony
+        'no_trailing_comma_in_singleline' => true, // @Symfony
         'no_trailing_whitespace' => true,
         'no_trailing_whitespace_in_comment' => true,
         'no_unneeded_control_parentheses' => true, // @Symfony
-        'no_unneeded_curly_braces' => true, // @Symfony
+        'no_unneeded_braces' => true, // @Symfony
         'no_unneeded_final_method' => true, // @Symfony
         'no_unreachable_default_argument_value' => true,
         'no_unset_on_property' => true,
@@ -139,7 +138,7 @@ return (new \PhpCsFixer\Config())
         'set_type_to_cast' => true, // @Symfony:risky
         'short_scalar_cast' => true, // @Symfony:risky
         'simplified_null_return' => true,
-        'single_blank_line_before_namespace' => true, // @Symfony
+        'blank_lines_before_namespace' => true, // @Symfony
         'single_line_after_imports' => true,
         'single_quote' => true, // @Symfony
         'space_after_semicolon' => true, // @Symfony
