@@ -20,16 +20,13 @@ class EntryFactoryTest extends TestCase
 
     private EntryInterface&Stub $feedEntry;
 
-    private DateTime&Stub $dateModified;
-
     protected function setUp(): void
     {
         $this->feedEntry = $this->createStub(EntryInterface::class);
         $this->feedEntry->method('getTitle')->willReturn('foo');
         $this->feedEntry->method('getDescription')->willReturn('bar');
         $this->feedEntry->method('getLink')->willReturn('baz');
-        $this->dateModified = $this->createStub(DateTime::class);
-        $this->feedEntry->method('getDateModified')->willReturn($this->dateModified);
+        $this->feedEntry->method('getDateModified')->willReturn((new DateTime())->setTimestamp(1743936830));
 
         $this->entryFactory = new EntryFactory();
     }
@@ -41,7 +38,7 @@ class EntryFactoryTest extends TestCase
         $this->assertSame('foo', $entry->title);
         $this->assertSame('bar', $entry->description);
         $this->assertSame('baz', $entry->link);
-        $this->assertSame($this->dateModified, $entry->pubDate);
+        $this->assertSame(1743936830, $entry->pubDate->getTimestamp());
     }
 
     /**
