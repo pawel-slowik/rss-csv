@@ -21,7 +21,7 @@ class EntryFactory
 
         return new Entry(
             $entry->getTitle(),
-            $entry->getDescription(),
+            (string) $entry->getDescription(),
             $entry->getLink(),
             $pubDate,
             $this->getEntryCreator($entry->getAuthors(), $feedAuthors)

@@ -230,6 +230,19 @@ class EntryFactoryTest extends TestCase
         $this->entryFactory->fromFeedEntryAndAuthors($feedEntry, null);
     }
 
+    public function testShouldHandleNullDescriptions(): void
+    {
+        $feedEntry = $this->createStub(EntryInterface::class);
+        $feedEntry->method('getTitle')->willReturn('');
+        $feedEntry->method('getDescription')->willReturn(null);
+        $feedEntry->method('getLink')->willReturn('');
+        $feedEntry->method('getDateModified')->willReturn(new DateTime());
+
+        $entry = $this->entryFactory->fromFeedEntryAndAuthors($feedEntry, null);
+
+        $this->assertSame('', $entry->description);
+    }
+
     private function createEmptyEntryStub(): EntryInterface&Stub
     {
         $feedEntry = $this->createStub(EntryInterface::class);
