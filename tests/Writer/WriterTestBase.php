@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Writer;
+namespace RssClient\Test\Writer;
 
 use PHPUnit\Framework\TestCase;
 

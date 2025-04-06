@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace RssClient;
+namespace RssClient\Test;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use RssClient\Converter\ConverterInterface;
 use RssClient\Reader\ReaderInterface;
+use RssClient\RssClient;
 use RssClient\Writer\WriterInterface;
 
 /**

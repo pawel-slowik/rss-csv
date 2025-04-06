@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Converter;
+namespace RssClient\Test\Converter;
 
 use ArrayIterator;
 use DateTime;
 use PHPUnit\Framework\TestCase;
+use RssClient\Converter\Converter;
 use RssClient\Converter\Formatter\DateFormatter;
 use RssClient\Converter\Formatter\DescriptionFormatter;
 use RssClient\Reader\Entry;

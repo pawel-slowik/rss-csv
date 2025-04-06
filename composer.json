@@ -33,7 +33,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "RssClient\\": [
+            "RssClient\\Test\\": [
                 "tests/"
             ]
         }

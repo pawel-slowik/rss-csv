@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Converter\Formatter;
+namespace RssClient\Test\Converter\Formatter;
 
 use PHPUnit\Framework\TestCase;
+use RssClient\Converter\Formatter\DescriptionFormatter;
 
 /**
  * @covers \RssClient\Converter\Formatter\DescriptionFormatter

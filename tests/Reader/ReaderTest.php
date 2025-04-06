@@ -2,12 +2,15 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Reader;
+namespace RssClient\Test\Reader;
 
 use Laminas\Feed\Reader\Http\ClientInterface as LaminasHttpClientInterface;
 use Laminas\Feed\Reader\Http\ResponseInterface as LaminasHttpResponseInterface;
 use Laminas\Feed\Reader\Reader as LaminasReader;
 use PHPUnit\Framework\TestCase;
+use RssClient\Reader\Entry;
+use RssClient\Reader\EntryFactory;
+use RssClient\Reader\Reader;
 
 /**
  * @covers \RssClient\Reader\Reader

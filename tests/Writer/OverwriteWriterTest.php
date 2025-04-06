@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Writer;
+namespace RssClient\Test\Writer;
 
 use RssClient\Exception\RuntimeException;
+use RssClient\Writer\Output;
+use RssClient\Writer\OverwriteWriter;
 
 /**
  * @covers \RssClient\Writer\OverwriteWriter

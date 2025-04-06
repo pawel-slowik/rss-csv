@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace RssClient\Reader;
+namespace RssClient\Test\Reader;
 
 use ArrayIterator;
 use DateTime;
 use Laminas\Feed\Reader\Entry\EntryInterface;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
+use RssClient\Reader\EntryFactory;
 
 /**
  * @covers \RssClient\Reader\EntryFactory
